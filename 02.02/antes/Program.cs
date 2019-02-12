@@ -23,33 +23,51 @@ namespace _02._02
             //TAREFA PRINCIPAL
             //=================
             //colocar os filmes abaixo na ordem cronológica
-            var esperanca = new Filme("Episódio IV -Uma nova esperança", 1977);
-            var imperio = new Filme("Episódio V -O Império Contra-Ataca", 1980);
-            var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
+            var esperanca = new Filme("Episódio IV - Uma nova esperança", 1977);
+            var imperio = new Filme("Episódio V - O Império Contra-Ataca", 1980);
+            var retorno = new Filme("Episódio VI - O Retorno de Jedi", 1983);
             var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
             var ataque = new Filme("Episódio II: Ataque dos Clones", 2002);
             var guerraClones = new Filme("A Guerra dos Clones", 2003);
             var vinganca = new Filme("Episódio III: A Vingança dos Sith", 2005);
             var rebels = new Filme("Rebels", 2014);
-            var despertar = new Filme("Episódio VII -O Despertar da Força", 2015);
+            var despertar = new Filme("Episódio VII - O Despertar da Força", 2015);
             var rogue = new Filme("Rogue One", 2016);
             var ultimo = new Filme("Episódio VIII: Os Últimos Jedi", 2017);
 
             ///TAREFA: criar uma coleção vazia, que irá crescer aos poucos
+            List<Filme> cronologia = new List<Filme>();
 
             ///TAREFA: checar a capacidade da lista
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
+            ///
+            cronologia.Add(esperanca);
 
             ///TAREFA: checar novamente a capacidade da lista
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
+            ///
+            //cronologia.Add(imperio);
+            //cronologia.Add(retorno);
+            cronologia.AddRange(new List<Filme> { imperio, retorno });
 
             ///TAREFA: Declarar a lista com inicialização simplificada
+            ///
+            cronologia = new List<Filme> { esperanca, imperio, retorno };
 
             ///TAREFA: checar novamente a capacidade da lista
+            ///
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: imprimir a cronologia
+            ///
+            Imprimir(cronologia);
 
             ///TAREFA: inserir Ameaça Fantasma no início da cronologia
 
@@ -80,6 +98,14 @@ namespace _02._02
             ///TAREFA: exibir filmes em ordem de lançamento
 
             ///TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
+        }
+
+        private static void Imprimir(List<Filme> lista)
+        {
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item.Titulo);
+            }
         }
     }
 
