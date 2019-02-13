@@ -39,16 +39,16 @@ namespace _02._02
             List<Filme> cronologia = new List<Filme>();
 
             ///TAREFA: checar a capacidade da lista
-            Console.WriteLine("tamanho da lista: " + cronologia.Count);
-            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
+            //Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            //Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
             ///
-            cronologia.Add(esperanca);
+            //cronologia.Add(esperanca);
 
             ///TAREFA: checar novamente a capacidade da lista
-            Console.WriteLine("tamanho da lista: " + cronologia.Count);
-            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
+            //Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            //Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
             ///
@@ -62,54 +62,87 @@ namespace _02._02
 
             ///TAREFA: checar novamente a capacidade da lista
             ///
-            Console.WriteLine("tamanho da lista: " + cronologia.Count);
-            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
+            //Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            //Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: imprimir a cronologia
             ///
-            Imprimir(cronologia);
+            //Imprimir(cronologia);
 
             ///TAREFA: inserir Ameaça Fantasma no início da cronologia
+            var posicao = 1;
+            cronologia.Insert(posicao - 1, ameaca);
 
+            //Imprimir(cronologia);
             ///TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
+            posicao = 2;
+            var novosFilmes = new[] { ataque, guerraClones, vinganca, rebels };
+            cronologia.InsertRange(posicao - 1, novosFilmes);
+            //Imprimir(cronologia);
 
             ///TAREFA: checar novamente a capacidade da lista
+            //Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            //Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
             ///TAREFA: adicionar Despertar da Força no fim da cronologia
 
+            cronologia.Add(despertar);
+            //Imprimir(cronologia);
+
+            //Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            //Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
+
             ///TAREFA: inserir Rogue One antes de Uma Nova Esperança
+            var indiceEsperanca = cronologia.IndexOf(esperanca);
+            cronologia.Insert(indiceEsperanca, rogue);
 
             ///TAREFA: adicionar O Último Jedi ao final da cronologia
-
+            cronologia.Add(ultimo);
             ///TAREFA: exibir a cronologia inversa
-
+            cronologia.Reverse();
             ///TAREFA: voltar a cronologia à ordem original
-
+            cronologia.Reverse();
             ///TAREFA: obter lista de filmes só com atores (sem rebels e guerra dos clones)
+            var filmesComAtores = new List<Filme>(cronologia);
+            var indiceRebels = filmesComAtores.IndexOf(rebels);
+            var indiceClones = filmesComAtores.IndexOf(guerraClones);
+
+            filmesComAtores.RemoveAt(indiceRebels);
+            //filmesComAtores.RemoveAt(indiceClones);
+            filmesComAtores.Remove(guerraClones);
 
             ///TAREFA: obter trilogia original (filmes lançados até 1983)
-
+            var trilogiaOriginal = new List<Filme>(cronologia);
+            trilogiaOriginal.RemoveAll((filme) => filme.Ano > 1983);
             ///TAREFA: exibir primeiro filme da cronologia
 
             ///TAREFA: exibir último filme da cronologia
 
             ///TAREFA: exibir filmes em ordem alfabética
-
+            var ordemAlfabetica = new List<Filme>(filmesComAtores);
+            ordemAlfabetica.Sort();
             ///TAREFA: exibir filmes em ordem de lançamento
-
+            var ordemLancamento = new List<Filme>(filmesComAtores);
+            ordemLancamento.Sort((filme1, filme2) => filme1.Ano.CompareTo(filme2.Ano));
             ///TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
+            var trilogiaInicial = new Filme[3];
+            ordemLancamento.CopyTo(3, trilogiaInicial, 0, 3);
+
+            Imprimir(ordemLancamento);
+            Imprimir(trilogiaInicial);
         }
 
-        private static void Imprimir(List<Filme> lista)
+        private static void Imprimir(IEnumerable<Filme> lista)
         {
             foreach (var item in lista)
             {
-                Console.WriteLine(item.Titulo);
+                Console.WriteLine(item.Titulo + " - " + item.Ano);
             }
+            Console.WriteLine("\n");
         }
     }
 
-    public class Filme
+    public class Filme : IComparable
     {
         public Filme(string titulo, int ano)
         {
@@ -119,6 +152,20 @@ namespace _02._02
 
         public string Titulo { get; set; }
         public int Ano { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            Filme esta = this;
+            Filme outra = obj as Filme;
+
+            if (outra == null)
+            {
+                return 1;
+            }
+
+            return esta.Titulo.CompareTo(outra.Titulo);
+
+        }
 
         public override string ToString()
         {

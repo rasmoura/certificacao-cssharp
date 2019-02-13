@@ -17,13 +17,10 @@ namespace _02._02._1
         }
 
         private List<Filme> filmes;
-        public List<Filme> Filmes
+        public IReadOnlyCollection<Filme> Filmes
         {
-            get { return filmes; }
-            set
-            {
-                filmes = value;
-            }
+            get { return new ReadOnlyCollection<Filme>(filmes); }
+
         }
 
         public LojaDeFilmes()
@@ -51,7 +48,7 @@ namespace _02._02._1
                     new Diretor("Justin Kurzel",  6)
                 };
 
-            Filmes = new List<Filme> {
+            filmes = new List<Filme> {
                     new Filme (
                         new Diretor ( "James Cameron", 5 ),
                         "Avatar",
