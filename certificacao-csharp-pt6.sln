@@ -127,6 +127,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppHashSet", "Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSetModelo", "ConsoleAppSetModelo\ConsoleAppSetModelo.csproj", "{6EB6D7C0-0FE5-4E2F-AE44-45CFF380604A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dictionary", "Dictionary", "{B7A0C6BA-AA3C-4EC1-80AD-09A45D2773A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppDictionary", "ConsoleAppDictionary\ConsoleAppDictionary.csproj", "{4059C0F5-268B-4487-B1E2-DAD12B127BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +241,10 @@ Global
 		{6EB6D7C0-0FE5-4E2F-AE44-45CFF380604A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB6D7C0-0FE5-4E2F-AE44-45CFF380604A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB6D7C0-0FE5-4E2F-AE44-45CFF380604A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4059C0F5-268B-4487-B1E2-DAD12B127BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4059C0F5-268B-4487-B1E2-DAD12B127BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4059C0F5-268B-4487-B1E2-DAD12B127BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4059C0F5-268B-4487-B1E2-DAD12B127BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -301,6 +309,7 @@ Global
 		{D636D95A-9B0C-4475-96FF-5CC65ECBF043} = {B9B4A222-F64E-40F0-85BF-A6CC81DC4D55}
 		{097B6709-8BC4-4072-A646-C91BF558BA74} = {0403794F-B64A-403F-9ED0-EA80549C1A23}
 		{6EB6D7C0-0FE5-4E2F-AE44-45CFF380604A} = {0403794F-B64A-403F-9ED0-EA80549C1A23}
+		{4059C0F5-268B-4487-B1E2-DAD12B127BE2} = {B7A0C6BA-AA3C-4EC1-80AD-09A45D2773A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB746614-5028-424F-BE2D-071CEC5200A3}
