@@ -14,6 +14,18 @@ namespace _02._05
 
             ///<image url="$(ProjectDir)\Slides\queue0.png" scale=""/>
 
+            var pedagio = new Pedagio();
+            pedagio.Enfileirar("van");
+            pedagio.Enfileirar("kombi");
+            pedagio.Enfileirar("guincho");
+            pedagio.Enfileirar("pickup");
+
+            pedagio.Desenfileirar();
+            pedagio.Desenfileirar();
+            pedagio.Desenfileirar();
+            pedagio.Desenfileirar();
+            pedagio.Desenfileirar();
+
         }
     }
 }
